@@ -23,6 +23,7 @@ subprojects {
         key = System.getenv('BINTRAY_KEY')
         pkg {
             repo = 'generic'
+            name = 'a'
             userOrg = 'gradle-deploy'
             licenses = ['Apache-2.0']
             vcsUrl = 'https://github.com/burtsevyg/gradle-deploy.git'
