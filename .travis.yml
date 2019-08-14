@@ -18,8 +18,7 @@ cache:
 
 deploy:
   provider: script
-  script:
-    - ./gradlew bintrayUpload
+  script: ./gradlew bintrayUpload
   on:
     tags: true
     all_branches: true

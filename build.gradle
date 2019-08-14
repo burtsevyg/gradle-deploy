@@ -8,7 +8,7 @@ plugins {
 allprojects {
     apply plugin: 'java'
     group = 'ru.test'
-    version = '1.0'
+    version = System.getenv('TRAVIS_TAG')
 
     repositories {
         jcenter()
@@ -28,10 +28,8 @@ subprojects {
             licenses = ['Apache-2.0']
             vcsUrl = 'https://github.com/burtsevyg/gradle-deploy.git'
             version {
-                name = '1.0'
                 desc = 'gradle-deploy'
                 released  = new Date()
-                vcsTag = '1.0'
                 attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
             }
         }
