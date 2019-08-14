@@ -18,7 +18,7 @@ cache:
 
 deploy:
   provider: script
-  script: ./gradlew bintrayUpload
+  script: ./gradlew -i bintrayUpload
   skip_cleanup: true
   dry-run: false
   on:
