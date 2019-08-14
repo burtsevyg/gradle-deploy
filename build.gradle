@@ -1,5 +1,8 @@
 plugins {
     id "com.jfrog.bintray" version "1.8.4" apply false
+
+//    gradle taskTree build - print tree of build task
+    id "com.dorongold.task-tree" version "1.4"
 }
 
 allprojects {
