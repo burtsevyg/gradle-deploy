@@ -1,0 +1,36 @@
+plugins {
+    id "com.jfrog.bintray" version "1.8.4" apply false
+}
+
+allprojects {
+    apply plugin: 'java'
+    group = 'ru.test'
+    version = '1.0'
+
+    repositories {
+        jcenter()
+    }
+}
+
+subprojects {
+    apply plugin: 'com.jfrog.bintray'
+
+    bintray {
+        user = System.getenv('BINTRAY_USER')
+        key = System.getenv('BINTRAY_KEY')
+        pkg {
+            repo = 'generic'
+            name = 'gradle-deploy'
+            userOrg = 'gradle-deploy'
+            licenses = ['Apache-2.0']
+            vcsUrl = 'https://github.com/burtsevyg/gradle-deploy.git'
+            version {
+                name = '1.0'
+                desc = 'gradle-deploy'
+                released  = new Date()
+                vcsTag = '1.0'
+                attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+            }
+        }
+    }
+}
