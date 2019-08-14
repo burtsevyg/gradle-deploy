@@ -17,6 +17,14 @@ cache:
     - $HOME/.gradle/wrapper/
 
 deploy:
+  provider: releases
+  api_key: "GITHUB_OAUTH_TOKEN"
+  file:
+    - "a/build/libs/*.jar"
+    - "b/build/libs/*.jar"
+  skip_cleanup: true
+  on:
+    tags: true
   provider: script
   script: ./gradlew --scan bintrayUpload
   skip_cleanup: true
