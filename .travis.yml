@@ -20,8 +20,8 @@ deploy:
   provider: releases
   api_key: "GITHUB_OAUTH_TOKEN"
   file:
-    - "a/build/libs/*.jar"
-    - "b/build/libs/*.jar"
+    - a/build/libs/a-${TRAVIS_TAG}.jar
+    - b/build/libs/b-${TRAVIS_TAG}.jar
   skip_cleanup: true
   on:
     tags: true
