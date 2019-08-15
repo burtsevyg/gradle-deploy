@@ -24,6 +24,7 @@ subprojects {
             repo = 'generic'
             name = project.name
             licenses = ['Apache-2.0']
+            vcsUrl = 'https://github.com/burtsevyg/gradle-deploy.git'
             version {
                 name = System.getenv('TRAVIS_TAG')
             }
