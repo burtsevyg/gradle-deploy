@@ -21,12 +21,13 @@ subprojects {
         user = System.getenv('BINTRAY_USER')
         key = System.getenv('BINTRAY_KEY')
         pkg {
-            repo = 'generic'
+            repo = 'maven'
             name = project.name
             licenses = ['Apache-2.0']
             vcsUrl = 'https://github.com/burtsevyg/gradle-deploy.git'
             version {
                 name = System.getenv('TRAVIS_TAG')
+                vcsTag = System.getenv('TRAVIS_TAG')
             }
         }
     }
