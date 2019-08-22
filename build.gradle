@@ -3,8 +3,8 @@ plugins {
 
 //    #gradle taskTree build -> print tree of build task
     id "com.dorongold.task-tree" version "1.4"
-//    #gradle build scan -> print scan
-    id 'com.gradle.build-scan' version '1.16'
+//    #gradle build --scan -> print scan
+    id 'com.gradle.build-scan' version '2.4.1'
 }
 
 buildScan {
