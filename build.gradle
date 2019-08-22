@@ -5,8 +5,56 @@ plugins {
     id "com.dorongold.task-tree" version "1.4"
 }
 
+buildScan {
+    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+    termsOfServiceAgree = 'yes'
+}
+
+//// Create the pom configuration:
+//def pomConfig = {
+//    licenses {
+//        license {
+//            name "The Apache Software License, Version 2.0"
+//            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+//            distribution "repo"
+//        }
+//    }
+//    developers {
+//        developer {
+//            id "developer-id"
+//            name "developer-name"
+//            email "dev@d.com"
+//        }
+//    }
+//
+//    scm {
+//        url "https://github.com/yourgithubaccount/example"
+//    }
+//}
+//
+//// Create the publication with the pom configuration:
+//publishing {
+//    publications {
+//        MyPublication(MavenPublication) {
+//            from components.java
+//            artifact sourcesJar
+//            artifact javadocJar
+//            groupId 'org.jfrog.gradle.sample'
+//            artifactId 'gradle-project'
+//            version '1.1'
+//            pom.withXml {
+//                def root = asNode()
+//                root.appendNode('description', 'Your description of the lib')
+//                root.appendNode('name', 'Your name of the lib')
+//                root.appendNode('url', 'https://site_for_lib.tld')
+//                root.children().last() + pomConfig
+//            }
+//        }
+//    }
+//}
+
 allprojects {
-    apply plugin: 'java'
+    apply plugin: 'java-library'
     group = 'ru.test'
 
     repositories {
@@ -20,6 +68,7 @@ subprojects {
     bintray {
         user = System.getenv('BINTRAY_USER')
         key = System.getenv('BINTRAY_KEY')
+
         pkg {
             repo = 'maven'
             name = project.name
