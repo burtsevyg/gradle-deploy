@@ -26,7 +26,7 @@ deploy:
   on:
     tags: true
   provider: script
-  script: ./gradlew --scan bintrayUpload
+  script: ./gradlew bintrayUpload --scan
   skip_cleanup: true
   dry-run: false
   on:
