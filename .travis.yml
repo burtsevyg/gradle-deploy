@@ -18,7 +18,7 @@ cache:
 
 deploy:
   provider: releases
-  api_key: "GITHUB_OAUTH_TOKEN"
+  api_key: "$GITHUB_OAUTH_TOKEN"
   file:
     - a/build/libs/a-${TRAVIS_TAG}.jar
     - b/build/libs/b-${TRAVIS_TAG}.jar
