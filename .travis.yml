@@ -19,18 +19,17 @@ cache:
     - $HOME/.gradle/wrapper/
 
 deploy:
-  provider: releases
-  api_key: "$GITHUB_OAUTH_TOKEN"
-  file:
-    - a/build/libs/a-${TRAVIS_TAG}.jar
-    - b/build/libs/b-${TRAVIS_TAG}.jar
-  skip_cleanup: true
-  on:
-    tags: true
-#  provider: script
-#  script: ./gradlew bintrayUpload -i
-#  skip_cleanup: true
-#  dry-run: false
-#  on:
-#    tags: true
-#    all_branches: true
+  - provider: releases
+    api_key: "$GITHUB_OAUTH_TOKEN"
+    file:
+      - a/build/libs/a-${TRAVIS_TAG}.jar
+      - b/build/libs/b-${TRAVIS_TAG}.jar
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: script
+    script: ./gradlew bintrayUpload -i
+    skip_cleanup: true
+    dry-run: false
+    on:
+      tags: true
