@@ -58,6 +58,7 @@ allprojects {
 }
 
 subprojects {
+    version = System.getenv('TRAVIS_BRANCH')
     apply plugin: 'com.jfrog.bintray'
 
     bintray {
