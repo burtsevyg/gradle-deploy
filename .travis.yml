@@ -25,10 +25,10 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-  provider: script
-  script: ./gradlew bintrayUpload -i
-  skip_cleanup: true
-  dry-run: false
-  on:
-    tags: true
-    all_branches: true
+#  provider: script
+#  script: ./gradlew bintrayUpload -i
+#  skip_cleanup: true
+#  dry-run: false
+#  on:
+#    tags: true
+#    all_branches: true
