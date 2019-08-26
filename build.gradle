@@ -1,3 +1,5 @@
+import org.gradle.api.publish.maven.MavenPublication
+
 plugins {
     id "com.jfrog.bintray" version "1.8.4" apply false
 
@@ -17,6 +19,8 @@ allprojects {
 subprojects {
     version = System.getenv('TRAVIS_BRANCH')
     apply plugin: 'com.jfrog.bintray'
+    apply plugin: 'maven-publish'
+    apply plugin: 'signing'
 
     bintray {
         user = System.getenv('BINTRAY_USER')
@@ -32,6 +36,16 @@ subprojects {
                 vcsTag = System.getenv('TRAVIS_TAG')
             }
         }
+    }
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allJava
+        archiveClassifier = 'sources'
+    }
+
+    task javadocJar(type: Jar) {
+        from javadoc
+        archiveClassifier = 'javadoc'
     }
 
 // Create the pom configuration:
@@ -57,19 +71,21 @@ subprojects {
     }
 
 // Create the publication with the pom configuration:
-    publish {
-        publishing {
-            publications {
-                MyPublication(MavenPublication) {
-                    from components.java
-                    artifact sourcesJar
-                    artifact javadocJar
-                    pom.withXml {
-                        def root = asNode()
-                        root.children().last() + pomConfig
-                    }
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+                artifact sourcesJar
+                artifact javadocJar
+                pom.withXml {
+                    def root = asNode()
+                    root.children().last() + pomConfig
                 }
             }
         }
+    }
+
+    signing {
+        sign publishing.publications.mavenJava
     }
 }
