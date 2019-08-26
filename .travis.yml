@@ -7,8 +7,6 @@ jdk: openjdk8
 
 script:
   - ./gradlew build
-  - ls -la ./a/build/libs/
-  - ls -la ./b/build/libs/
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
