@@ -57,15 +57,17 @@ subprojects {
     }
 
 // Create the publication with the pom configuration:
-    publishing {
-        publications {
-            MyPublication(MavenPublication) {
-                from components.java
-                artifact sourcesJar
-                artifact javadocJar
-                pom.withXml {
-                    def root = asNode()
-                    root.children().last() + pomConfig
+    publish {
+        publishing {
+            publications {
+                MyPublication(MavenPublication) {
+                    from components.java
+                    artifact sourcesJar
+                    artifact javadocJar
+                    pom.withXml {
+                        def root = asNode()
+                        root.children().last() + pomConfig
+                    }
                 }
             }
         }
