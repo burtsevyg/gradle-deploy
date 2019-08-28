@@ -75,10 +75,6 @@ subprojects {
                 artifact sourcesJar
                 artifact javadocJar
 
-                groupId = Project.getGroup()
-                artifactId = Project.getName()
-                version = Project.getVersion()
-
                 pom.withXml {
                     def root = asNode()
                     root.children().last() + pomConfig
