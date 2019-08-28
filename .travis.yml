@@ -6,7 +6,7 @@ dist: xenial
 jdk: openjdk8
 
 script:
-  - ./gradlew build
+  - ./gradlew build --debug
   - ls -la ./a/build/libs/
   - ls -la ./b/build/libs/
 
