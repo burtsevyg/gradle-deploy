@@ -3,13 +3,6 @@ plugins {
 
 //    #gradle taskTree build -> print tree of build task
     id "com.dorongold.task-tree" version "1.4"
-//    #gradle build --scan -> print scan
-    id 'com.gradle.build-scan' version '2.4.1'
-}
-
-buildScan {
-    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-    termsOfServiceAgree = 'yes'
 }
 
 allprojects {
