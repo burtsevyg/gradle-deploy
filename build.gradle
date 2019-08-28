@@ -7,7 +7,7 @@ plugins {
 
 allprojects {
     apply plugin: 'java-library'
-    group = 'ru.test'
+    group = 'ru.burtsevyg'
     version = System.getenv('TRAVIS_BRANCH')
 
     repositories {
