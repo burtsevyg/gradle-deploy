@@ -8,7 +8,6 @@ plugins {
 allprojects {
     apply plugin: 'java-library'
     group = 'ru.test'
-    version = System.getenv('TRAVIS_BRANCH')
 
     repositories {
         jcenter()
@@ -18,6 +17,7 @@ allprojects {
 subprojects {
     apply plugin: 'maven-publish'
     apply plugin: 'com.jfrog.bintray'
+    version = System.getenv('TRAVIS_BRANCH')
 
     bintray {
         user = System.getenv('BINTRAY_USER')
