@@ -7,8 +7,6 @@ plugins {
 
 allprojects {
     apply plugin: 'java-library'
-    group = 'ru.burtsevyg'
-    version = System.getenv('TRAVIS_BRANCH')
 
     repositories {
         jcenter()
@@ -16,6 +14,9 @@ allprojects {
 }
 
 subprojects {
+    group = 'ru.burtsevyg'
+    version = System.getenv('TRAVIS_BRANCH')
+
     apply plugin: 'maven-publish'
     apply plugin: 'com.jfrog.bintray'
 
